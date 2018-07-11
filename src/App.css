@@ -1,0 +1,40 @@
+.App {
+  text-align: center;
+  background-color: #9A6079;
+  color: white;
+  height: 1000px;
+  overflow: hidden;
+  width: 100%;
+}
+
+#logger {
+  display: none;
+}
+
+img  {
+  display: none;
+}
+
+.App-header {
+  background-color: #3a556a;
+  height: 100px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  margin-top: 50px;
+  font-size: 1.5em;
+  clear: both;
+  z-index: 999;
+  display: block;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+/*#b39397 jimin sky purple
+#7fb1bb jimin sky blue
+#3a556a jimin sweater
+#933848 jimin hair*/
