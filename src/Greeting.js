@@ -1,5 +1,8 @@
 
 import React, { Component } from 'react';
+import Flower from './Flower.js'
+import mp3_file from './ping.mp3';
+
 
 
 class Greeting extends Component {
@@ -12,19 +15,21 @@ class Greeting extends Component {
 	}
 
 	changeColor() {
-		if(this.state.color == 'blue'){
+		if(this.state.color == '#3a556a'){
 			this.setState({
 			  	color: 'white'
 			});
 		} else {
 			this.setState({
-			  	color: '#BA91A4'
+			  	color: '#3a556a'
 			});
 		}
 	}
 	render(){
 		return(
-			<h1 className="App-title" style={{color:this.state.color}} onClick={this.changeColor.bind(this)}>Hello!</h1>
+			<div id="top-circle" onClick={this.changeColor.bind(this)}>
+			<h1 className="App-title" style={{color:this.state.color}}>Hello!</h1>
+			</div>
 		)
 	}
 }

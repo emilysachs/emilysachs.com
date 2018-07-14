@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import FlowerShower from './FlowerShower.js'
 import Greeting from './Greeting.js'
 import logo from './logo.svg';
+import mp3_file from './ping.mp3';
+import Volume from './Volume.js'
+
 
 import './App.css';
 
 var PASSCODE = ['m','o','t','h','e','r','l','o','d','e'];
 var current = 0;
+
 
 class App extends Component {
   clicker(){
@@ -61,13 +65,17 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <Volume/>
           <FlowerShower/>
           <Greeting/>
         </header>
+    
+        <div id="bottom-circle">
+          <div className="App-intro">
+            She's a work in progress<span onClick={this.clicker}>.</span>
+          </div>
+        </div>
         <div id="logger"></div>
-        <p className="App-intro">
-          She's a work in progress<span onClick={this.clicker}>.</span>
-        </p>
       </div>
     );
   }

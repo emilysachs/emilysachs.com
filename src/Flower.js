@@ -1,23 +1,26 @@
 
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { findDOMNode } from 'react-dom';
 import logo from './logo.svg';
 import myg from './myg.png';
+import mp3_file from './ping.mp3';
+import $ from 'jquery';
+
 
 
 function BounceAnimation (props) {
 	return keyframes`
-		0% { top: -20%; transform: rotate(0deg); left: ${props => props.rleft}; opacity: 0;}
-		5% {opacity: 1;}
-		25% { opacity: 0.9;}
-		30% { transform: rotate(${props.rot1}deg); opacity: 0.8; translate(${Math.floor(props.rheight)%2 == 0 ? props.rheight*3 : -props.rheight*3}px, 0px);}
-		50% { top: 95%; transform: rotate(${props.rot2}deg); opacity: 0.7; left: ${props => props.rleft}}
-		100% { top: 95%; transform: rotate(${props.rot2}deg); opacity: 0; left: ${props => props.rleft}}
+		0% { opacity: 0; }
+		1% {opacity: 1;}
+		25% { opacity: 0.9; transform:  translate(0px, 55vh) rotate(${Math.floor(props.rot1)%2 == 0 ? props.rot1 : -props.rot1}deg);}
+		50% { transform: translate(${Math.floor(props.rheight)%2 == 0 ? props.rheight : -props.rheight}px, 105vh) rotate(${Math.floor(props.rot2)%2 == 0 ? props.rot2 : -props.rot2}deg);opacity: 0.9;}
+		100% { opacity: 0; transform: translate(${Math.floor(props.rheight)%2 == 0 ? props.rheight : -props.rheight}px, 105vh)}
 	`
 }
 
 function getRand(min, max){
-	return Math.random() * (max - min + 1) + min;
+	return Math.random() * (max - min) + min;
 }
 
 function getRandP(props){
@@ -33,10 +36,10 @@ function getColor(){
 }
 
 const FlowerChild = styled.svg`
+	top: -10vh;
 	height: ${props => props.rheight}px;
 	width: ${props => props.rheight}px;
-	position: absolute;
-	top: -20%;
+	position: fixed;
 	fill: #BA91A4;
 	z-index: 0;
 	opacity: 0;
@@ -47,10 +50,10 @@ const FlowerChild = styled.svg`
 `
 
 const FlowerMan = styled.img`
+	top: -10vh;
 	height: ${props => props.rheight}px;
 	width: ${props => props.rheight}px;
-	position: absolute;
-	top: -20%;
+	position: fixed;
 	z-index: 0;
 	opacity: 0;
 	left: ${props => props.rleft}%;
@@ -79,13 +82,19 @@ class FlowerParent extends Component {
 	}
 }
 
+
+function audioId(id){
+	return "myAudio-"+ id;
+}
+
 class Flower extends Component {
+
 	render(){
 		return(
-			<div>
-				<FlowerParent delay={getRand(0,16)} rheight={getRand(10, 30)} rot1={getRand(30, 180)}px rot2={getRand(-180, -30)}px rleft={getRand(8, 92)}>
+			<div class="flower" >
+				<FlowerParent delay={getRand(0,16)} rheight={getRand(10, 40)} rot1={getRand(30, 180)}px rot2={getRand(-180, -30)}px rleft={getRand(8, 92)}>
 					<FlowerMan src={myg}/>
-					<FlowerChild>
+					<FlowerChild class="flower-child">
 						<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 							 viewBox="150 170 140 120">
 						    	<g fill={getColor()}>
