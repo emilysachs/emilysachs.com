@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import FlowerShower from './FlowerShower.js'
+import { FlowerShower } from './FlowerShower.js'
 import Greeting from './Greeting.js'
 import logo from './logo.svg';
-import mp3_file from './ping.mp3';
 import Volume from './Volume.js'
 
 

@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import Flower from './Flower.js'
-import mp3_file from './ping.mp3';
 
 
 
