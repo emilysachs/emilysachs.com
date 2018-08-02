@@ -1,7 +1,5 @@
 
 import React, { Component } from 'react';
-import Flower from './Flower.js'
-
 
 
 class Greeting extends Component {
@@ -14,13 +12,13 @@ class Greeting extends Component {
 	}
 
 	changeColor() {
-		if(this.state.color == '#3a556a'){
+		if(this.state.color === '#3a4b6a'){
 			this.setState({
 			  	color: 'white'
 			});
 		} else {
 			this.setState({
-			  	color: '#3a556a'
+			  	color: '#3a4b6a'
 			});
 		}
 	}

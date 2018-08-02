@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Flower } from "./Flower";
-import { findDOMNode } from 'react-dom';
 import ReactDOM from 'react-dom';
 import ping1 from './audio/pingg.mp3';
 import ping2 from './audio/pinga.mp3';
@@ -34,7 +33,8 @@ export class FlowerContainer extends Component {
 
 	componentDidMount() {
 	    ReactDOM.findDOMNode(this).addEventListener("mouseenter", this.handleMouseEnter);
-	    this.audio.volume = 0.1;
+	    ReactDOM.findDOMNode(this).addEventListener("click", this.handleMouseEnter);
+	    this.audio.volume = 0.07;
 	  }
 
 	  componentWillUnmount() {
@@ -71,9 +71,9 @@ export class FlowerContainer extends Component {
 					position={this.state.position} 
 					name={this.props.name}
 					color={this.state.color}/>
-					<audio volume="0.1" ref={(audioTag) => { this.audio = audioTag }} style={{display: 'none'}}>
-						<source class="mp3" src={sounds[pitch]}/>
-						<source class="ogg" src={osounds[pitch]}/>
+					<audio volume="0.07" ref={(audioTag) => { this.audio = audioTag }} style={{display: 'none'}}>
+						<source className="mp3" src={sounds[pitch]}/>
+						<source className="ogg" src={osounds[pitch]}/>
 					</audio>
 				</div>
 			);
